@@ -1,0 +1,89 @@
+@font-face {
+    font-family:"helsinki";
+    src: url("../fonts/helsinki.eot") format('embedded-opentype'),
+    url("../fonts/helsinki.ttf") format("truetype"),
+    url("../fonts/helsinki.woff") format("woff");
+}
+@font-face {
+    font-family:"aaargh";
+    src: url("../fonts/aaargh.eot") format('embedded-opentype'),
+    url("../fonts/aaargh.ttf") format("truetype"),
+    url("../fonts/aaargh.woff") format("woff");
+}
+:root{
+    --primary-color:#17BEBB;
+    --secondary-color:#98CE00;
+    --tertiary-color:#533747;
+    --text-color:#ffffff;
+    --header-font:"helsinki";
+    --body-font:"aaargh";
+    --header-font-size:35px;
+    --body-font-size:20px;
+    --default-padding:20px;
+    --shadow:0 4px 0 var(--tertiary-color);
+    --body-text-shadow:0 2px 2px var(--tertiary-color);
+}
+
+body {
+    display:flex;
+    flex-direction:column;
+    color:var(--text-color);
+    font-family:var(--body-font);
+    font-size:var(--body-font-size);
+    background: linear-gradient(0.45turn,var(--primary-color), rgba(255,255,255,.85), var(--secondary-color));
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+a:link, a:visited {
+    color:var(--tertiary-color);
+}
+a:active, a:hover {
+    color:var(--text-color);
+}
+
+nav {
+    width:100vw;
+    background:var(--primary-color);
+    padding:var(--default-padding);
+}
+
+content {
+    width:100vw;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-content:center;
+    padding:var(--default-padding);
+}
+
+label {
+    text-shadow:var(--body-text-shadow);
+}
+
+.header {
+    font-family:var(--header-font);
+    font-size:var(--header-font-size);
+    text-shadow:var(--shadow);
+}
+
+.np-btn {
+    background:var(--primary-color);
+    box-shadow:var(--shadow);
+    color:var(--text-color);
+    padding:var(--default-padding);
+    border-radius:20px;
+    border:none;
+}
+
+#registration-form {
+    background:rgba(0,0,0,.25);
+    padding:var(--default-padding);
+    border-radius:20px;
+    border:5px dashed var(--tertiary-color);
+}
+
+.form-control {
+    border:1px solid var(--tertiary-color);
+}
