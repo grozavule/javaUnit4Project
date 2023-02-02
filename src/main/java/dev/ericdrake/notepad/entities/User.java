@@ -2,6 +2,7 @@ package dev.ericdrake.notepad.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import dev.ericdrake.notepad.dtos.UserDto;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -22,6 +23,11 @@ public class User {
     private Set<Note> noteSet = new HashSet<>();
 
     public User() {
+    }
+
+    public User(UserDto userDto){
+        this.username = userDto.getUsername();
+        this.password = userDto.getPassword();
     }
 
     public User(Long id, String username, String password) {
@@ -52,5 +58,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<Note> getNoteSet() {
+        return noteSet;
+    }
+
+    public void setNoteSet(Set<Note> noteSet) {
+        this.noteSet = noteSet;
     }
 }

@@ -1,6 +1,7 @@
 package dev.ericdrake.notepad.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import dev.ericdrake.notepad.dtos.NoteDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,10 @@ public class Note {
     @ManyToOne
     @JsonBackReference
     private User user;
+
+    public Note(NoteDto noteDto){
+        this.body = noteDto.getBody();
+    }
 
 //    public Long getId() {
 //        return id;
