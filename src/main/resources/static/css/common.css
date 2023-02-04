@@ -36,11 +36,20 @@ body {
     height: 100vh;
 }
 
-a:link, a:visited {
+a:link, a:visited, .nav-link {
     color:var(--tertiary-color);
 }
-a:active, a:hover {
+
+a:active, a:hover, .nav-link:hover {
     color:var(--text-color);
+}
+
+.nav-tabs {
+    border-bottom:1px solid #ffffff;
+}
+
+.nav-link.active, .nav-link.active:hover {
+    color:var(--primary-color);
 }
 
 nav {
@@ -60,6 +69,10 @@ content {
 
 label {
     text-shadow:var(--body-text-shadow);
+}
+
+.page-container {
+    min-width:800px;
 }
 
 .header {
@@ -86,4 +99,22 @@ label {
 
 .form-control {
     border:1px solid var(--tertiary-color);
+}
+
+.pill-label {
+    background:var(--primary-color);
+    width:100%;
+    padding:var(--default-padding);
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+    border-left:1px solid var(--tertiary-color);
+    border-right:1px solid var(--tertiary-color);
+    border-top:1px solid var(--tertiary-color);
+    transition:none;
+}
+
+.pill-field {
+    transition:none;
+    border-radius: 0 0 20px 20px;
+    border-top:none;
 }

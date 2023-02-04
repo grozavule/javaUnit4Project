@@ -11,25 +11,28 @@
     <span id="app-name" class="header">Notepad</span>
 </nav>
 <content>
-    <form id="registration-form">
-        <fieldset>
-            <legend class="header">Registration</legend>
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" id="username" class="form-control form-control-lg" />
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" id="password" class="form-control form-control-lg" />
-            </div>
-            <div class="mb-3">
-                <input type="submit" class="np-btn header" value="Register" />
-            </div>
-        </fieldset>
-        <p>Already a user? <a href="./login.html">Login</a></p>
-    </form>
+    <section class="page-container">
+        <form id="registration-form">
+            <fieldset>
+                <legend class="header">Registration</legend>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-control form-control-lg" />
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" id="password" class="form-control form-control-lg" />
+                </div>
+                <div class="mb-3">
+                    <input type="submit" class="np-btn header" value="Register" />
+                </div>
+            </fieldset>
+            <p>Already a user? <a href="./login.html">Login</a></p>
+        </form>
+    </section>
 </content>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="js/register.js"></script>
+<script src="js/index.js"></script>
 </html>

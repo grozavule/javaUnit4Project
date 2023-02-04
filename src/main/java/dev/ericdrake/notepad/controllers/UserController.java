@@ -1,6 +1,7 @@
 package dev.ericdrake.notepad.controllers;
 
 import dev.ericdrake.notepad.dtos.UserDto;
+import dev.ericdrake.notepad.exceptions.UserAlreadyExistsException;
 import dev.ericdrake.notepad.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,7 +25,13 @@ public class UserController {
     public List<String> addUser(@RequestBody UserDto userDto){
         String passHash = passwordEncoder.encode(userDto.getPassword());
         userDto.setPassword(passHash);
-        return userService.addUser(userDto);
+        List<String> response = new ArrayList<>();
+        try {
+            response = userService.addUser(userDto);
+        } catch(UserAlreadyExistsException e){
+            response.add(e.getMessage());
+        }
+        return response;
     }
 
     @PostMapping("/login")
