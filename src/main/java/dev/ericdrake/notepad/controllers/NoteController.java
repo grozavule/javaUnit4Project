@@ -1,6 +1,7 @@
 package dev.ericdrake.notepad.controllers;
 
 import dev.ericdrake.notepad.dtos.NoteDto;
+import dev.ericdrake.notepad.entities.Note;
 import dev.ericdrake.notepad.services.NoteService;
 import dev.ericdrake.notepad.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,10 +46,15 @@ public class NoteController {
     }
 
     @PutMapping("/{noteId}")
-    public List<String> updateNote(NoteDto noteDto, @PathVariable Long noteId){
+    public List<String> updateNote(@RequestBody Note note, @PathVariable Long noteId){
+        Optional<NoteDto> noteDto = noteService.getNoteById(noteId);
+        if(noteDto.isPresent()){
+            NoteDto tempNoteDto = noteDto.get();
+            tempNoteDto.setBody(note.getBody());
+            noteService.updateNote(tempNoteDto);
+        }
         List<String> response = new ArrayList<>();
-        noteService.updateNote(noteDto);
-        response.add("Note was successfully updated");
+        response.add("Note updated successfully");
         return response;
     }
 }

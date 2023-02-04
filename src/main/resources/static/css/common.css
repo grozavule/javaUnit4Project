@@ -71,6 +71,13 @@ label {
     text-shadow:var(--body-text-shadow);
 }
 
+th {
+    background:var(--primary-color);
+}
+th,td {
+    padding:10px;
+}
+
 .page-container {
     min-width:800px;
 }
@@ -97,6 +104,10 @@ label {
     border:5px dashed var(--tertiary-color);
 }
 
+.modal {
+    color:var(--tertiary-color);
+}
+
 .form-control {
     border:1px solid var(--tertiary-color);
 }
@@ -117,4 +128,9 @@ label {
     transition:none;
     border-radius: 0 0 20px 20px;
     border-top:none;
+}
+
+.content-table tr:hover {
+    cursor:pointer;
+    background:rgba(152, 206, 0, 0.5);
 }

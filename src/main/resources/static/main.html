@@ -36,15 +36,48 @@
                         </div>
                     </form>
                 </div>
-                <div class="tab-pane fade" id="read-tab-pane" role="tabpanel" aria-labelledby="read-tab" tabindex="0">
-                    <h1>Read tab</h1>
-                </div>
-                <div class="tab-pane fade" id="revise-tab-pane" role="tabpanel" aria-labelledby="revise-tab" tabindex="0">
-                    <h1>Revise tab</h1>
-                </div>
+                <div class="tab-pane fade" id="read-tab-pane" role="tabpanel" aria-labelledby="read-tab" tabindex="0"></div>
+                <div class="tab-pane fade" id="revise-tab-pane" role="tabpanel" aria-labelledby="revise-tab" tabindex="0"></div>
             </div>
         </section>
     </content>
+    <!--// Read Note Modal //-->
+    <div id="read-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// End of Read Note Modal //-->
+    <!--// Revise Note Modal //-->
+    <div id="revise-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="revise-note">
+                        <textarea class="form-control" id="revise-note-field"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="revise-note-save-btn" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// End of Revise Note Modal //-->
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
