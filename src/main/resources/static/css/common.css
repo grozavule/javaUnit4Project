@@ -97,7 +97,7 @@ th,td {
     border:none;
 }
 
-#registration-form {
+#registration-form, #login-form {
     background:rgba(0,0,0,.25);
     padding:var(--default-padding);
     border-radius:20px;

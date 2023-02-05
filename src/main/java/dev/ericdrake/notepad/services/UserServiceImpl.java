@@ -56,12 +56,22 @@ public class UserServiceImpl implements UserService {
         Optional<User> userOptional = userRepository.findByUsername(userDto.getUsername());
         if(userOptional.isPresent()){
             if(passwordEncoder.matches(userDto.getPassword(), userOptional.get().getPassword())){
-                response.add("The username/password entered was accepted");
-                response.add(String.valueOf(userOptional.get().getId()));
+                try {
+                    ObjectMapper mapper = new ObjectMapper();
+                    String userJson = mapper.writeValueAsString(userOptional.get());
+                    response.add("SUCCESS");
+                    response.add(userJson);
+                    //response.add(String.valueOf(userOptional.get().getId()));
+                } catch(Exception e){
+                    response.add("ERROR");
+                    response.add(e.getMessage());
+                }
             } else {
+                response.add("ERROR");
                 response.add("The username/password entered is invalid.");
             }
         } else {
+            response.add("ERROR");
             response.add("The username/password entered is invalid.");
         }
         return response;
