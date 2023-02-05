@@ -20,6 +20,7 @@ const readTabPane = document.querySelector("#read-tab-pane");
 const reviseTab = document.querySelector("#revise-tab");
 const reviseTabPane = document.querySelector("#revise-tab-pane");
 const reviseNoteSaveButton = document.querySelector("#revise-note-save-btn");
+const noteModal = new bootstrap.Modal("#revise-modal");
 
 const addNewNote = e => {
     e.preventDefault();
@@ -91,15 +92,14 @@ const displayNote = e => {
 const editNote = e => {
     const reviseNoteId = document.querySelector("#revise-note-id").textContent;
     const reviseNoteField = document.querySelector("#revise-note-field");
-    const noteModal = document.querySelector("#revise-modal");
 
     let note = {
         body: reviseNoteField.value
     }
     axios.put(`/api/v1/notes/${reviseNoteId}`, note)
         .then(res => {
-            noteModal.style.display="none";
             populateReviseTab();
+            noteModal.hide();
             alert("Note was successfully saved");
         });
 
@@ -107,7 +107,6 @@ const editNote = e => {
 
 const reviseNote = e => {
     const noteId = e.target.parentNode.getAttribute("data-noteid");
-    const noteModal = new bootstrap.Modal("#revise-modal");
     const noteModalTitle = document.querySelector("#revise-modal .modal-title");
     const reviseNoteField = document.querySelector("#revise-note-field");
 
